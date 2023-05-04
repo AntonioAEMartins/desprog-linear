@@ -36,8 +36,13 @@ int queue_int_full(queue_int *q) {
 }
 
 void queue_int_put(queue_int *q, int value) {
+    q->data[q->end] = value;
+    q->end ++;
+    q->size ++;
 }
 
 int queue_int_get(queue_int *q) {
-    return 0;
+    q->size --;
+    q->begin ++;
+    return q->data[q->begin];
 }
